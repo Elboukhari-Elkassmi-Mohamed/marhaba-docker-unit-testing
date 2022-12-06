@@ -1,0 +1,18 @@
+version: "4.14"
+services:
+  
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
